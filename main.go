@@ -1,7 +1,17 @@
 package main
 
-import "github.com/Acksell/among-us-queue/bot"
+import (
+	"os"
+
+	"github.com/Acksell/among-us-queue/bot"
+)
+
+var token string
+
+func init() {
+	token = os.Getenv("BOT_TOKEN")
+}
 
 func main() {
-	bot.SendMessage("IT'S ALIVE!")
+	bot.MakeAndListen(token)
 }
